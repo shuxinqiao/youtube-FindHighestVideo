@@ -15,9 +15,10 @@ triple.style.color="#343d45";
 triple.onclick=function(){
     const views = [];
     const num = [];
-    let Re_all = /\d*\w\sviews/;
-    let Re_tK = /\d*K\sviews/;
-    let Re_hM = /\d*M\sviews/;
+    let Re_all = /\u6b21\u89c2\u770b/;
+    let Re_s = /\d*\u6b21\u89c2\u770b/;
+    let Re_tK = /\d*\u4e07\u6b21\u89c2\u770b/;
+    let Re_hM = /\d*\u4ebf\u6b21\u89c2\u770b/;
 
 
 
@@ -32,17 +33,17 @@ triple.onclick=function(){
 
     function Replace(){
         for (var i=0; i<views.length; i++){
-            if (Re_K.test(views[i])){
-                var cur_d = views[i].replace("K views","");
+            if (Re_tK.test(views[i])){
+                var cur_d_tK = views[i].replace("\u4e07\u6b21\u89c2\u770b","") * 10000;
+                num.push(Number(cur_d_tK));
+            }
+            else if (Re_hM.test(views[i])){
+                var cur_d_hM = views[i].replace("\u4ebf\u6b21\u89c2\u770b","") * 10000 * 10000 ;
+                num.push(Number(cur_d_hM));
+            }
+            else if (Re_s.test(views[i])){
+                var cur_d = views[i].replace("\u6b21\u89c2\u770b","");
                 num.push(Number(cur_d));
-            }
-            else if (Re_M.test(views[i])){
-                var cur_d_M = views[i].replace("M views","") * 1000 ;
-                num.push(Number(cur_d_M));
-            }
-            else if (Re_B.test(views[i])){
-                var cur_d_B = views[i].replace("B views","") * 1000 * 1000;
-                num.push(Number(cur_d_B));
             }
         };
     };
@@ -56,14 +57,14 @@ triple.onclick=function(){
 
 
     function alert_msg(){
-        var word = "K";
+        var word = "次观看";
         var value = num[0];
-        if (value >= 1000){
-            value = num[0]/1000;
-            word = "M";
-            if (value >= 1000){
-                value = value/1000;
-                word = "B"
+        if (value >= 10000){
+            value = num[0]/10000;
+            word = "万次观看";
+            if (value >= 10000){
+                value = value/10000;
+                word = "亿次观看"
             }
         }
         return {value,word};
@@ -74,7 +75,7 @@ triple.onclick=function(){
 
 
 };
-let sub=document.querySelector('.style-scope ytd-subscribe-button-renderer');
+let sub=document.querySelector('.style-scope.ytd-c4-tabbed-header-renderer.style-destructive.size-default');
 sub.parentElement.insertBefore(triple,sub);
 
 var div_list = document.getElementsByTagName('span');
