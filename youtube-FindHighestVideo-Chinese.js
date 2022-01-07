@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         youtube-sort
+// @name         youtube-sort-chinese version
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  Find highest view video on current page
@@ -16,9 +16,9 @@ triple.onclick=function(){
     const views = [];
     const num = [];
     let Re_all = /\d*\w\sviews/;
-    let Re_K = /\d*K\sviews/;
-    let Re_M = /\d*M\sviews/;
-    let Re_B = /\d*B\sviews/;
+    let Re_tK = /\d*K\sviews/;
+    let Re_hM = /\d*M\sviews/;
+
 
 
     function Find(){
