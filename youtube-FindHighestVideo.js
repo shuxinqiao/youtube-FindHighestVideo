@@ -15,10 +15,10 @@ triple.style.color="#343d45";
 triple.onclick=function(){
     const views = [];
     const num = [];
-    let Re_all = /\d*\w\sviews/g;
-    let Re_K = /\d*K\sviews/g;
-    let Re_M = /\d*M\sviews/g;
-    let Re_B = /\d*B\sviews/g;
+    let Re_all = /\d*\w\sviews/;
+    let Re_K = /\d*K\sviews/;
+    let Re_M = /\d*M\sviews/;
+    let Re_B = /\d*B\sviews/;
 
 
     function Find(){
