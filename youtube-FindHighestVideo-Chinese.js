@@ -75,7 +75,7 @@ triple.onclick=function(){
 
 
 };
-let sub=document.querySelector('.style-scope.ytd-c4-tabbed-header-renderer.style-destructive.size-default');
+let sub=document.querySelector('.style-scope ytd-subscribe-button-renderer');
 sub.parentElement.insertBefore(triple,sub);
 
 var div_list = document.getElementsByTagName('span');
